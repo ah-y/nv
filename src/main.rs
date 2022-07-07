@@ -4,9 +4,12 @@ use {
 };
 
 fn main() {
-   let path = std::env::args().nth(1,).unwrap_or("~/.config/nvim/init.vim".to_string(),);
+   let path = std::env::args().nth(1,);
    let colors = vec!["PaperColor", "flatui", "nova", "enfocado", "iceberg", "one"];
    let color = colors[thread_rng().gen_range(0..colors.len(),)];
    let colo = format!("-c color {}", color);
-   Command::new("nvim",).args([&colo, &path,],).exec();
+   let _ = match path {
+      Some(p,) => Command::new("nvim",).args([&colo, &p,],).exec(),
+      None => Command::new("nvim",).args([&colo,],).exec(),
+   };
 }
