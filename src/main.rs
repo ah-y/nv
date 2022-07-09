@@ -5,7 +5,7 @@ use {
 
 fn main() {
    let path = std::env::args().nth(1,);
-   let colors = vec!["PaperColor", "flatui", "nova", "enfocado", "iceberg", "one"];
+   let colors = vec!["PaperColor", "flatui", "nova", "iceberg", "edge"];
    let color = colors[thread_rng().gen_range(0..colors.len(),)];
    let colo = format!("-c color {}", color);
    let _ = match path {
