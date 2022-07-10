@@ -5,7 +5,8 @@ use {
 
 fn main() {
    let path = std::env::args().nth(1,);
-   let colors = vec!["PaperColor", "flatui", "nova", "iceberg", "edge"];
+   let clr = std::fs::read_to_string("txt/clr.txt",).unwrap();
+   let colors: Vec<&str,> = clr.split_whitespace().collect();
    let color = colors[thread_rng().gen_range(0..colors.len(),)];
    let colo = format!("-c color {}", color);
    let _ = match path {
