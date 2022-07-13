@@ -4,7 +4,7 @@ use {
 };
 
 fn main() {
-   let clr = vec!["PaperColor", "edge", "flatui", "iceberg", "nova"];
+   let clr = vec!["PaperColor", "edge", "flatui", "iceberg", "nova", "primary"];
    let path = std::env::args().nth(1,);
    let color = clr[thread_rng().gen_range(0..clr.len(),)];
    let colo = format!("-c color {color}");
